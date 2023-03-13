@@ -15,10 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ko' className='antialiased'>
-      <body className='antialiased'>
+      <body>
         <ThemeWrapper>
           <div className='h-screen'>
-            <div className='w-full h-full max-w-7xl mx-auto rounded border dark:border-slate-700 overflow-hidden shadow'>
+            <div className='w-full h-full relative mx-auto rounded border overflow-y-scroll dark:border-slate-700  shadow'>
               <Header />
               <div className='p-4'>{children}</div>
             </div>

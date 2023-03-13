@@ -24,8 +24,7 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       backgroundImage: {
-        landing: "url('/landing4.gif')",
-        landing2: "url('/landing3.gif')",
+        landing: "url('/landing.gif')",
       },
       fontSize: {
         'responsive-sm': 'clamp(40px, -8.4225352113px + 8.0845070423vw, 200px)',

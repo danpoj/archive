@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import Link from 'next/link'
+import Link, { LinkProps } from 'next/link'
 
 import { cn } from '@/lib/utils'
 
@@ -15,23 +15,24 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { Dog, Github, Instagram, Mail } from 'lucide-react'
+import { useRouter } from 'next/router'
 
 const components: { title: string; href: string; description: string }[] = [
   {
     title: 'Articles',
-    href: '/',
+    href: '/articles',
     description:
       'A modal dialog that interrupts the user with important content and expects a response.',
   },
   {
     title: 'Libraries',
-    href: '/docs/primitives/hover-card',
+    href: '/libraries',
     description:
       'For sighted users to preview content available behind a link.',
   },
   {
     title: 'Links',
-    href: '/docs/primitives/progress',
+    href: '/links',
     description:
       'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
   },
@@ -94,13 +95,13 @@ export function Navigation() {
           <NavigationMenuContent>
             <ul className='grid w-[300px] gap-3 p-4 '>
               {components.map((component) => (
-                <ListItem
+                <ListItemLink
                   key={component.title}
                   title={component.title}
                   href={component.href}
                 >
                   {component.description}
-                </ListItem>
+                </ListItemLink>
               ))}
             </ul>
           </NavigationMenuContent>
@@ -135,3 +136,35 @@ const ListItem = React.forwardRef<
   )
 })
 ListItem.displayName = 'ListItem'
+
+const ListItemLink = ({
+  className,
+  title,
+  children,
+  href,
+}: {
+  className?: string
+  title: string
+  children: React.ReactNode
+  href: string
+}) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <Link
+          className={cn(
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-slate-700 dark:focus:bg-slate-700',
+            className
+          )}
+          href={href}
+        >
+          <div className='text-sm font-medium leading-none'>{title}</div>
+          <p className='line-clamp-2 text-sm leading-snug text-slate-500 dark:text-slate-400 flex items-center gap-1'>
+            {children}
+          </p>
+        </Link>
+      </NavigationMenuLink>
+    </li>
+  )
+}
+ListItemLink.displayName = 'ListItemLink'
