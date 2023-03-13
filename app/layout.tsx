@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import { Toaster } from '@/components/ui/toaster'
 import ThemeWrapper from '@/components/ThemeWrapper'
+import { Header } from '@/components/Header'
 
 export const metadata = {
   title: 'Create Next App',
@@ -16,7 +17,12 @@ export default function RootLayout({
     <html lang='ko' className='antialiased'>
       <body className='antialiased'>
         <ThemeWrapper>
-          <div className='h-screen p-4'>{children}</div>
+          <div className='h-screen'>
+            <div className='w-full h-full max-w-7xl mx-auto rounded border dark:border-slate-700 overflow-hidden shadow'>
+              <Header />
+              <div className='p-4'>{children}</div>
+            </div>
+          </div>
           <Toaster />
         </ThemeWrapper>
       </body>

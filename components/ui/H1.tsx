@@ -1,15 +1,20 @@
+import { cn } from '@/lib/utils'
 import { FC } from 'react'
 
 interface h1Props {
   children: React.ReactNode
+  className?: string
 }
 
-const H1: FC<h1Props> = ({ children }) => {
+export const H1: FC<h1Props> = ({ children, className }) => {
   return (
-    <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
+    <h1
+      className={cn(
+        'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
+        className
+      )}
+    >
       {children}
     </h1>
   )
 }
-
-export default H1

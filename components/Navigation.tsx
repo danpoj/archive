@@ -75,14 +75,14 @@ export function Navigation() {
                   href='https://github.com/danpoj/archive'
                   className='p-2 w-full'
                 >
-                  <Github size={17} />
+                  <Github size={17} className='text-stone-400' />
                   <span className=''>Github</span>
                 </ListItem>
                 <ListItem
-                  href='https://github.com/danpoj/archive'
+                  href='https://www.instagram.com/danpoj_/'
                   className='p-2'
                 >
-                  <Instagram size={17} color='fuchsia' />
+                  <Instagram size={17} className='text-rose-400' />
                   <span className=''>Instagram</span>
                 </ListItem>
               </div>

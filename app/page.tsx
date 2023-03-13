@@ -1,12 +1,16 @@
-import Contents from '@/components/Contents'
-import Header from '@/components/Header'
+import { icons } from '@/components/Icons'
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className='w-full h-full max-w-7xl mx-auto rounded border dark:border-slate-700 overflow-hidden shadow'>
-      <Header />
+    <div className='grid mt-16'>
+      <h1 className='text-responsive-sm text-slate-700 dark:text-slate-200 leading-5 font-black tracking-tighter'>
+        @danpoj/
+      </h1>
+      <h2 className='bg-landing bg-clip-text text-transparent text-responsive-lg font-black tracking-tighter'>
+        Archive
+      </h2>
 
-      <Contents />
+      <div className='border h-screen rounded bg-gradient-to-r from-purple-400 to-cyan-400'></div>
     </div>
   )
 }
